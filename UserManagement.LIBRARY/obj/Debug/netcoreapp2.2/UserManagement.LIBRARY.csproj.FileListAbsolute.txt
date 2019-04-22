@@ -1,0 +1,11 @@
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.deps.json
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.dll
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.pdb
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/obj/Debug/netcoreapp2.2/UserManagement.LIBRARY.csprojAssemblyReference.cache
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/obj/Debug/netcoreapp2.2/UserManagement.LIBRARY.csproj.CoreCompileInputs.cache
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/obj/Debug/netcoreapp2.2/UserManagement.LIBRARY.AssemblyInfoInputs.cache
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/obj/Debug/netcoreapp2.2/UserManagement.LIBRARY.AssemblyInfo.cs
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/obj/Debug/netcoreapp2.2/UserManagement.LIBRARY.dll
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/obj/Debug/netcoreapp2.2/UserManagement.LIBRARY.pdb
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.runtimeconfig.json
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.LIBRARY/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.runtimeconfig.dev.json
