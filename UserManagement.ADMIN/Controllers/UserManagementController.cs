@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UserManagement.LIBRARY;
+using UserManagement.LIBRARY.EncryptLib;
 using UserManagement.LIBRARY.Model;
 using UserManagement.LIBRARY.Provider;
 
@@ -46,5 +47,12 @@ namespace UserManagement.ADMIN.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public JsonResult Output(String test)
+        {
+            return Json(HashStr.SHA1Hash(test));
+        }
+
     }
 }

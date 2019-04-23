@@ -30,7 +30,6 @@ namespace UserManagement.LIBRARY.Model
         public bool? IsEnabled { get; set; }
         [Column(TypeName = "varchar(255)")]
         public string Nationality { get; set; }
-        [Required]
         [Column("SSN", TypeName = "varchar(255)")]
         public string Ssn { get; set; }
         [Required]
@@ -41,5 +40,7 @@ namespace UserManagement.LIBRARY.Model
         public string Lastname { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? Created { get; set; }
+        [Column(TypeName = "bit(1)")]
+        public bool? Gender { get; set; }
     }
 }

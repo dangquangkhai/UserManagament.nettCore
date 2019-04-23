@@ -1,129 +1,151 @@
-@{
-    ViewData["Title"] = "User Management";
-}
-    <link href="../plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <script src="../js/custom.min.js"></script>
-    <script src="../plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
-    <!-- start - This is for export functionality only -->
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+@{ ViewData["Title"] = "User Management"; }
 
-    <div class="col-sm-12" id="AppUser">
-        <div class="white-box">
-            <h3 class="box-title m-b-0">Danh sach nguoi dung</h3>
-            <div class="table-responsive">
-                <table id="main" class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Ho va Ten</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Dia chi</th>
-                            <th>Ngay sinh</th>
-                            <th>Tinh Trang</th>
-                            <th>Tuy Chinh</th>
-                        </tr>
-                    </thead>
-                    <tbody v-if="LstUsr.length > 0">
-                        <tr v-for="(item, index) in LstUsr">
-                            <td>{{index + 1}}</td>
-                            <td>{{item.Firstname + " " + item.Lastname}}</td>
-                            <td>{{item.Username}}</td>
-                            <td>{{item.Email}}</td>
-                            <td>{{item.Address}}</td>
-                            <td>{{item.Birthday}}</td>
-                            <td>{{item.IsEnabled}}</td>
-                            <td></td>
-                        </tr>       
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<link
+  href="../plugins/bower_components/datatables/jquery.dataTables.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+<script src="../js/custom.min.js"></script>
+<script src="../plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+<!-- start - This is for export functionality only -->
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+<div class="col-sm-12" id="AppUser">
+  <div class="white-box">
+    <h3 class="box-title m-b-0">Danh sach nguoi dung</h3>
+    <div class="table-responsive">
+      <table id="main" class="table table-striped">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Ho va Ten</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Dia chi</th>
+            <th>Ngay sinh</th>
+            <th>Tinh Trang</th>
+            <th>Tuy Chinh</th>
+          </tr>
+        </thead>
+        <tbody v-if="LstUsr.length > 0">
+          <tr v-for="(item, index) in LstUsr">
+            <td>{{ index + 1 }}</td>
+            <td>{{ item.Firstname + " " + item.Lastname }}</td>
+            <td>{{ item.Username }}</td>
+            <td>{{ item.Email }}</td>
+            <td>{{ item.Address }}</td>
+            <td>{{ item.Birthday }}</td>
+            <td>{{ item.IsEnabled }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
 
-    <script>
-        var AppUser = new Vue({
-        el: '#AppUser',
-        data() {
-            return {
-                LstUsr:[]
-            }
-        },
-        watch: {
-        },
-        updated() {
-            $('#main').dataTable({
-                "pagingType": "full_numbers",
-                searching: false,
-                "autoWidth": false,
-                "language": {
-                    "lengthMenu": "Hiển thị _MENU_ hồ sơ trên một trang",
-                    "info": "Đang hiển thị từ _START_ đến _END_ của _TOTAL_ hồ sơ",
-                    "paginate": {
-                        "first": '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
-                        "last": '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
-                        "previous": '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
-                        "next": '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
-
-                    },
-                    "search": "Tìm kiếm",
-                    "zeroRecords": "Không có kết quả hiển thị",
-                    "infoEmpty": "Không tìm thấy",
-                    "infoFiltered": "(Từ  _MAX_ bản ghi)"
-                }
-            });
-            $('#main').dataTable.ext.errMode = 'none';
-        },
-        mounted() {
-            $('#main').dataTable({
-                "pagingType": "full_numbers",
-                searching: false,
-                "autoWidth": false,
-                "language": {
-                    "lengthMenu": "Hiển thị _MENU_ hồ sơ trên một trang",
-                    "info": "Đang hiển thị từ _START_ đến _END_ của _TOTAL_ hồ sơ",
-                    "paginate": {
-                        "first": '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
-                        "last": '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
-                        "previous": '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
-                        "next": '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
-
-                    },
-                    "search": "Tìm kiếm",
-                    "zeroRecords": "Không có kết quả hiển thị",
-                    "infoEmpty": "Không tìm thấy",
-                    "infoFiltered": "(Từ  _MAX_ bản ghi)"
-                }
-            });
-            $('#main').dataTable.ext.errMode = 'none';
-            this.GetLstUsr();
-            },
-        methods: {
-            GetLstUsr: function(){
-                axios
-                    .get(API_BASE_URL + "UserManagement/GetAllUsr")
-                    .then(response => {
-                        if (response.data.success)
-                        {
-                            this.LstUsr = response.data.content;
-                            for(var i = 0 ; i < this.LstUsr.length ; i++)
-                            {
-                                this.LstUsr[i].Phone = (LibUtils.isEmpty(this.LstUsr[i].Phone))?(""):(this.LstUsr[i].Phone);
-                                this.LstUsr[i].Address = (LibUtils.isEmpty(this.LstUsr[i].Address))?(""):(this.LstUsr[i].Address);
-                                this.LstUsr[i].Birthday = (LibUtils.isEmpty(this.LstUsr[i].Birthday))?(""):(LibUtils.formatDate(this.LstUsr[i].Birthday));
-                                this.LstUsr[i].IsEnabled = (LibUtils.isEmpty(this.LstUsr[i].IsEnabled))?("Chua kich hoat"):("Kich hoat");
-                            }
-                            $('#main').DataTable().destroy();
-                        }
-                    })
-            },
+<script>
+  var AppUser = new Vue({
+    el: "#AppUser",
+    data() {
+      return {
+        LstUsr: []
+      };
+    },
+    watch: {},
+    updated() {
+      $("#main").dataTable({
+        pagingType: "full_numbers",
+        searching: false,
+        autoWidth: false,
+        language: {
+          lengthMenu: "Hiển thị _MENU_ hồ sơ trên một trang",
+          info: "Đang hiển thị từ _START_ đến _END_ của _TOTAL_ hồ sơ",
+          paginate: {
+            first:
+              '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
+            last:
+              '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
+            previous:
+              '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
+            next:
+              '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
+          },
+          search: "Tìm kiếm",
+          zeroRecords: "Không có kết quả hiển thị",
+          infoEmpty: "Không tìm thấy",
+          infoFiltered: "(Từ  _MAX_ bản ghi)"
         }
-    })
-    </script>
+      });
+      $("#main").dataTable.ext.errMode = "none";
+    },
+    mounted() {
+      $("#main").dataTable({
+        pagingType: "full_numbers",
+        searching: false,
+        autoWidth: false,
+        language: {
+          lengthMenu: "Hiển thị _MENU_ hồ sơ trên một trang",
+          info: "Đang hiển thị từ _START_ đến _END_ của _TOTAL_ hồ sơ",
+          paginate: {
+            first:
+              '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
+            last:
+              '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
+            previous:
+              '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
+            next:
+              '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
+          },
+          search: "Tìm kiếm",
+          zeroRecords: "Không có kết quả hiển thị",
+          infoEmpty: "Không tìm thấy",
+          infoFiltered: "(Từ  _MAX_ bản ghi)"
+        }
+      });
+      $("#main").dataTable.ext.errMode = "none";
+      this.GetLstUsr();
+    },
+    methods: {
+      GetLstUsr: function() {
+        axios.get(API_BASE_URL + "UserManagement/GetAllUsr").then(response => {
+          if (response.data.success) {
+            this.LstUsr = response.data.content;
+            for (var i = 0; i < this.LstUsr.length; i++) {
+              this.LstUsr[i].Phone = LibUtils.isEmpty(this.LstUsr[i].Phone)
+                ? ""
+                : this.LstUsr[i].Phone;
+              this.LstUsr[i].Address = LibUtils.isEmpty(this.LstUsr[i].Address)
+                ? ""
+                : this.LstUsr[i].Address;
+              this.LstUsr[i].Birthday = LibUtils.isEmpty(
+                this.LstUsr[i].Birthday
+              )
+                ? ""
+                : LibUtils.formatDate(this.LstUsr[i].Birthday);
+              this.LstUsr[i].IsEnabled = LibUtils.isEmpty(
+                this.LstUsr[i].IsEnabled
+              )
+                ? "Chua kich hoat"
+                : "Kich hoat";
+            }
+            $("#main")
+              .DataTable()
+              .destroy();
+          }
+        });
+      }
+    }
+  });
+</script>

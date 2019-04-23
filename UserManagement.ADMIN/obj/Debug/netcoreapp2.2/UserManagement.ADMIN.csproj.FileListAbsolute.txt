@@ -31,3 +31,4 @@
 /home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.ADMIN/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.dll
 /home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.ADMIN/bin/Debug/netcoreapp2.2/UserManagement.LIBRARY.pdb
 /home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.ADMIN/obj/Debug/netcoreapp2.2/Razor/Views/UserManagement/Index.g.cshtml.cs
+/home/khai/Projects/Dotnet-Core/Web-App/UserManagement/UserManagement.ADMIN/obj/Debug/netcoreapp2.2/Razor/Views/UserManagement/AddUser.g.cshtml.cs
