@@ -33,10 +33,11 @@ CREATE TABLE `User` (
   `Birthday` datetime DEFAULT NULL,
   `IsEnabled` bit(1) DEFAULT NULL,
   `Nationality` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `SSN` varchar(255) NOT NULL,
+  `SSN` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `Firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `Lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `Created` datetime DEFAULT NULL,
+  `Gender` bit(1) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -47,7 +48,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'admin','dangquangkhai@outlook.com\n','123','0363288969',NULL,NULL,'1998-12-25 00:00:00',_binary '\0',NULL,'','Khai','Dang','2019-04-21 00:00:00');
+INSERT INTO `User` VALUES (1,'admin','dangquangkhai@outlook.com\n','123','0363288969',NULL,NULL,'1998-12-25 00:00:00',_binary '\0',NULL,'','Khai','Dang','2019-04-21 00:00:00',NULL);
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-22 17:44:29
+-- Dump completed on 2019-04-23 23:51:50
