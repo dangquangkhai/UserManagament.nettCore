@@ -39,7 +39,12 @@ namespace UserManagement.ADMIN.Controllers
                 obj.Add("content", ex.Message.ToString());
                 return Json(obj);
             }
-
+        }
+        
+        [HttpGet]
+        public IActionResult AddUser()
+        {
+            return View();
         }
     }
 }
