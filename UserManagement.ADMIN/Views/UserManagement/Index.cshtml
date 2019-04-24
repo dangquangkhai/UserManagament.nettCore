@@ -1,15 +1,7 @@
 @{ ViewData["Title"] = "User Management"; }
 
-<link
-  href="../plugins/bower_components/datatables/jquery.dataTables.min.css"
-  rel="stylesheet"
-  type="text/css"
-/>
-<link
-  href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css"
-  rel="stylesheet"
-  type="text/css"
-/>
+<link href="../plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 <script src="../js/custom.min.js"></script>
 <script src="../plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
 <!-- start - This is for export functionality only -->
@@ -73,14 +65,10 @@
           lengthMenu: "Hiển thị _MENU_ hồ sơ trên một trang",
           info: "Đang hiển thị từ _START_ đến _END_ của _TOTAL_ hồ sơ",
           paginate: {
-            first:
-              '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
-            last:
-              '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
-            previous:
-              '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
-            next:
-              '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
+            first: '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
+            last: '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
+            previous: '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
+            next: '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
           },
           search: "Tìm kiếm",
           zeroRecords: "Không có kết quả hiển thị",
@@ -99,14 +87,10 @@
           lengthMenu: "Hiển thị _MENU_ hồ sơ trên một trang",
           info: "Đang hiển thị từ _START_ đến _END_ của _TOTAL_ hồ sơ",
           paginate: {
-            first:
-              '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
-            last:
-              '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
-            previous:
-              '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
-            next:
-              '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
+            first: '<i class="fa fa-step-backward" title="Đầu" aria-hidden="true"></i>',
+            last: '<i class="fa fa-step-forward" title="Cuối" aria-hidden="true"></i>',
+            previous: '<i class="fa fa-arrow-left" title="Trước" aria-hidden="true"></i>',
+            next: '<i class="fa fa-arrow-right" title="Sau" aria-hidden="true"></i>'
           },
           search: "Tìm kiếm",
           zeroRecords: "Không có kết quả hiển thị",
@@ -118,27 +102,27 @@
       this.GetLstUsr();
     },
     methods: {
-      GetLstUsr: function() {
+      GetLstUsr: function () {
         axios.get(API_BASE_URL + "UserManagement/GetAllUsr").then(response => {
           if (response.data.success) {
             this.LstUsr = response.data.content;
             for (var i = 0; i < this.LstUsr.length; i++) {
-              this.LstUsr[i].Phone = LibUtils.isEmpty(this.LstUsr[i].Phone)
-                ? ""
-                : this.LstUsr[i].Phone;
-              this.LstUsr[i].Address = LibUtils.isEmpty(this.LstUsr[i].Address)
-                ? ""
-                : this.LstUsr[i].Address;
+              this.LstUsr[i].Phone = LibUtils.isEmpty(this.LstUsr[i].Phone) ?
+                "" :
+                this.LstUsr[i].Phone;
+              this.LstUsr[i].Address = LibUtils.isEmpty(this.LstUsr[i].Address) ?
+                "" :
+                this.LstUsr[i].Address;
               this.LstUsr[i].Birthday = LibUtils.isEmpty(
-                this.LstUsr[i].Birthday
-              )
-                ? ""
-                : LibUtils.formatDate(this.LstUsr[i].Birthday);
+                  this.LstUsr[i].Birthday
+                ) ?
+                "" :
+                LibUtils.formatDate(this.LstUsr[i].Birthday);
               this.LstUsr[i].IsEnabled = LibUtils.isEmpty(
-                this.LstUsr[i].IsEnabled
-              )
-                ? "Chua kich hoat"
-                : "Kich hoat";
+                  this.LstUsr[i].IsEnabled
+                ) ?
+                "Chua kich hoat" :
+                "Kich hoat";
             }
             $("#main")
               .DataTable()

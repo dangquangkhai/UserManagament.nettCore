@@ -71,7 +71,7 @@ namespace UserManagement.LIBRARY.Provider
                 qr.Birthday = usr.Birthday;
                 qr.IsEnabled = usr.IsEnabled;
                 qr.Phone = usr.Phone;
-                qr.Image = usr.Image;
+                qr.Image = usr.Image; //Save user image path only
                 qr.Address = usr.Address;
                 base.db.SaveChanges();
                 return true;
